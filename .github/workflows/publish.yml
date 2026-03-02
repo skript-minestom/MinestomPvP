@@ -5,7 +5,7 @@ on:
       - 'master'
 jobs:
   publish:
-    if: github.repository_owner == 'TogAr2'
+    if: github.repository_owner == 'skript-minestom'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -18,10 +18,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Publish to Maven Central
-        run: ./gradlew publishToMavenCentral
+      - name: Publish to Maven Repository
+        run: ./gradlew publish
         env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          REPO_HAPILY_USERNAME: ${{ secrets.REPO_HAPILY_USERNAME }}
+          REPO_HAPILY_PASSWORD: ${{ secrets.REPO_HAPILY_PASSWORD }}

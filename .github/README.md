@@ -9,7 +9,7 @@ It tries to mimic vanilla (modern **and** pre-1.9) PvP as good as possible, whil
 Not only does MinestomPvP provide combat mechanics, it also provides several related features (e.g., status effects and food).
 You can easily declare which features you want to use.
 
-The project is published on [maven central](https://central.sonatype.com/artifact/io.github.togar2/MinestomPvP/).
+The project is published on [maven.hapily.me](https://maven.hapily.me/#/releases/io/github/togar2/MinestomPvP/).
 
 ## Table of Contents
 
