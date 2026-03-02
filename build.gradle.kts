@@ -1,3 +1,6 @@
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 plugins {
     java
     `maven-publish`
@@ -29,6 +32,17 @@ tasks.test {
 }
 
 publishing {
+    val mcVersion = libs.versions.minestom.get().split("-")[1]
+    val date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
+    val ver = "$date-$mcVersion"
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            artifactId = project.name
+            version = ver
+        }
+    }
+
     repositories {
         maven {
             url = uri("https://maven.hapily.me/releases/")
